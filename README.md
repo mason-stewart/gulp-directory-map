@@ -42,7 +42,7 @@ app
 
 ... this JSON object would be written to `dist/urls.json`:
 
-```
+```json
 {
   "index.html": "index.html",
   "nested-folder-1": {
