@@ -1,7 +1,7 @@
 # gulp-directory-map
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]  [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url]
 
-> Convert a buffer of files into a JSON representation of the file structure using [gulp](https://github.com/gulpjs/gulp)
+> Convert a buffer of files into a JSON representation of the directory structure using [gulp](https://github.com/gulpjs/gulp)
 
 ## Usage
 
