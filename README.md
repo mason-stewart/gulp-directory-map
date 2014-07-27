@@ -1,5 +1,5 @@
 # gulp-directory-map
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]  [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]  [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url] [![Dependency Status][depstat-dev-image]][depstat-dev-url] 
 
 > Convert a buffer of files into a JSON representation of the directory structure using [gulp](https://github.com/gulpjs/gulp)
 
@@ -75,6 +75,11 @@ The path to write the directory structure JSON file to.
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
+
+## Thanks
+
+Thanks to [@hparra](https://github.com/hparra) for creating the [generator-gulp-plugin](https://github.com/hparra/generator-gulp-plugin). It has lots of great examples and boilerplate setup, and was used to get this plugin bootstrapped.
+
 [npm-url]: https://npmjs.org/package/gulp-directory-map
 [npm-image]: https://badge.fury.io/js/gulp-directory-map.png
 
@@ -86,7 +91,5 @@ The path to write the directory structure JSON file to.
 
 [depstat-url]: https://david-dm.org/masondesu/gulp-directory-map
 [depstat-image]: https://david-dm.org/masondesu/gulp-directory-map.png
-
-## Thanks
-
-Thanks to [@hparra](https://github.com/hparra) for creating the [generator-gulp-plugin](https://github.com/hparra/generator-gulp-plugin). It has lots of great examples and boilerplate setup, and was used to get this plugin bootstrapped.
+[depstat-dev-url]: https://david-dm.org/masondesu/gulp-directory-map#info=devDependencies
+[depstat-dev-image]: https://david-dm.org/masondesu/gulp-directory-map/dev-status.png
