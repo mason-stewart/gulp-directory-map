@@ -1,0 +1,39 @@
+{
+  "name": "gulp-directory-map",
+  "version": "0.0.1",
+  "description": "Easily turn a directory into a JSON object representation.",
+  "keywords": [
+    "gulpplugin",
+    "json",
+    "directory",
+    "files",
+    "gulp"
+  ],
+  "author": {
+    "name": "Mason Stewart",
+    "url": "https://github.com/masondesu"
+  },
+  "repository": "https://github.com/masondesu/gulp-directory-map",
+  "scripts": {
+    "test": "istanbul test _mocha --report html -- test/*.js --reporter spec",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "dependencies": {
+    "gulp-util": "~2.2.0",
+    "lodash.isempty": "^2.4.1",
+    "through2": "*"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "chai": "^1.9.1",
+    "coveralls": "*",
+    "istanbul": "*",
+    "mocha": "*",
+    "mocha-lcov-reporter": "*"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "license": "MIT"
+}
