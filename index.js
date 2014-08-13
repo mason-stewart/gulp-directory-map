@@ -1,17 +1,22 @@
 var through = require("through2"),
 		isEmpty  = require("lodash.isempty"),
+		path = require("path"),
 		gutil = require("gulp-util");
 
 module.exports = function (config) {
 	"use strict";
 
 	config = config || {};
-	var origin = config.filename || "dist/urls.json",
+	var origin = config.filename || "urls.json",
+			firstFile,
 			directoryStructure = {};
-
 
 	function directoryMap(file, enc, callback) {
 		/*jshint validthis:true*/
+
+		if (!firstFile) {
+      firstFile = file;
+    }
 
 		// Do nothing if no contents
 		if (file.isNull()) {
@@ -55,9 +60,9 @@ module.exports = function (config) {
 
 			//create and push new vinyl file
 			this.push(new gutil.File({
-				cwd: __dirname,
-				base: __dirname,
-				path: origin,
+				cwd: firstFile.cwd,
+				base: firstFile.cwd,
+				path: path.join(firstFile.cwd, origin),
 				contents: new Buffer(JSON.stringify(directoryStructure))
 			}));
 
