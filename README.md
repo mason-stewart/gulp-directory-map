@@ -70,6 +70,31 @@ Default: `urls.json`
 
 The path to write the directory structure JSON file to.
 
+#### options.prefix
+Type: `String`
+Default: none
+
+The a string to prepend to every url.
+
+Given the directory structure above, specifiying `prefix: 'prefixed-folder'` would generate this JSON:
+
+```json
+{
+  "prefixed-folder": {
+    "index.html": "prefixed-folder/index.html",
+    "nested-folder-1": {
+      "faq.html": "prefixed-folder/nested-folder-1/faq.html",
+      "index.html": "prefixed-folder/nested-folder-1/index.html",
+      "nested-folder-1-1": {
+        "index.html": "prefixed-folder/nested-folder-1/nested-folder-1-1/index.html"
+      }
+    },
+    "nested-folder-2": {
+      "index.html": "prefixed-folder/nested-folder-2/index.html"
+    }
+  }
+}
+```
 
 ## License
 
