@@ -19,13 +19,13 @@
     "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "dependencies": {
-    "gulp-util": "~2.2.0",
-    "lodash.isempty": "^2.4.1",
-    "through2": "*"
+    "gulp-util": "~3.0.3",
+    "lodash.isempty": "^3.0.0",
+    "through2": "^1.1.1"
   },
   "devDependencies": {
     "gulp": "^3.8.6",
-    "chai": "^1.9.1",
+    "chai": "^2.0.0",
     "coveralls": "*",
     "istanbul": "*",
     "mocha": "*",
