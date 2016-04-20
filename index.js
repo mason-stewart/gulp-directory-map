@@ -19,7 +19,7 @@ module.exports = function (config) {
     }
 
 		// Do nothing if no contents
-		if (file.isNull()) {
+		if (!file.isDirectory() && file.isNull()) {
 			this.emit("error", new gutil.PluginError("gulp-directory-map", "File is null"));
 			this.emit("end");
 			return callback();
