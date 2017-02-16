@@ -42,7 +42,7 @@ module.exports = function (config) {
 			segments.forEach(function(seg, index){
 				if (index === segments.length-1){
 					parent[seg] = path.replace(/\\/g,"/");
-				} else if(flat) {
+				} else if(!flat) {
 					parent[seg] = parent[seg] || {};
 					parent = parent[seg];
 				}
