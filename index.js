@@ -8,7 +8,7 @@ module.exports = function (config) {
 
 	config = config || {};
 	var origin = config.filename || "urls.json",
-		flat = typeof config.flat !== 'undefined' ? config.flat : true,
+		subOjects = typeof config.subOjects !== 'undefined' ? config.subOjects : true,
 		firstFile,
 		directoryStructure = {};
 
@@ -42,7 +42,7 @@ module.exports = function (config) {
 			segments.forEach(function(seg, index){
 				if (index === segments.length-1){
 					parent[seg] = path.replace(/\\/g,"/");
-				} else if(!flat) {
+				} else if(subOjects) {
 					parent[seg] = parent[seg] || {};
 					parent = parent[seg];
 				}
