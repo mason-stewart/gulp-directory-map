@@ -8,8 +8,9 @@ module.exports = function (config) {
 
 	config = config || {};
 	var origin = config.filename || "urls.json",
-			firstFile,
-			directoryStructure = {};
+		flat = typeof config.flat !== 'undefined' ? config.flat : true,
+		firstFile,
+		directoryStructure = {};
 
 	function directoryMap(file, enc, callback) {
 		/*jshint validthis:true*/
@@ -39,12 +40,12 @@ module.exports = function (config) {
 			var parent = directoryStructure;
 
 			segments.forEach(function(seg, index){
-				if (index === segments.length -1){
+				if (index === segments.length-1){
 					parent[seg] = path.replace(/\\/g,"/");
-				} else {
+				} else if(flat) {
 					parent[seg] = parent[seg] || {};
+					parent = parent[seg];
 				}
-				parent = parent[seg];
 			});
 		}
 		return callback();
