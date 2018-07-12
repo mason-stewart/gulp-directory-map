@@ -1,6 +1,6 @@
 {
   "name": "gulp-directory-map",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Convert a buffer of files into a JSON representation of the directory structure.",
   "keywords": [
     "gulpplugin",
