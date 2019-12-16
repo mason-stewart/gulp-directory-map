@@ -6,7 +6,7 @@ require("mocha");
 var fs = require("fs"),
 		expect = require("chai").expect,
 		gulp = require("gulp"),
-		gutil = require("gulp-util"),
+		Vinyl = require("vinyl"),
 		directoryMap = require("../");
 
 
@@ -101,7 +101,7 @@ it("should generate a JSON file with the correct prefixed folder(s) whe provided
 
 	it("should error on stream", function (done) {
 
-		var srcFile = new gutil.File({
+		var srcFile = new Vinyl({
 			path: "test/fixtures/index.html",
 			cwd: "test/",
 			base: "test/fixtures",
