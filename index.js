@@ -1,7 +1,10 @@
 var through = require("through2"),
 		isEmpty  = require("lodash.isempty"),
 		path = require("path"),
-		gutil = require("gulp-util");
+		PluginError = require("plugin-error"),
+		Vinyl = require("vinyl"),
+		colors = require("ansi-colors"),
+		log = require("fancy-log");
 
 module.exports = function (config) {
 	"use strict";
@@ -21,14 +24,14 @@ module.exports = function (config) {
 
 		// Do nothing if no contents
 		if (!file.isDirectory() && file.isNull()) {
-			this.emit("error", new gutil.PluginError("gulp-directory-map", "File is null"));
+			this.emit("error", new PluginError("gulp-directory-map", "File is null"));
 			this.emit("end");
 			return callback();
 		}
 
 		// No support for streams yet.
 		if (file.isStream()) {
-			this.emit("error", new gutil.PluginError("gulp-directory-map", "No stream support!"));
+			this.emit("error", new PluginError("gulp-directory-map", "No stream support!"));
 			this.emit("end");
 			return callback();
 		}
@@ -54,20 +57,20 @@ module.exports = function (config) {
 	return through.obj(directoryMap,
 		function(cb) {
 			if (isEmpty(directoryStructure)) {
-				this.emit("error", new gutil.PluginError("gulp-directory-map", "No files found for directoryMap"));
+				this.emit("error", new PluginError("gulp-directory-map", "No files found for directoryMap"));
 				this.emit("end");
 				return cb();
 			}
 
 			//create and push new vinyl file
-			this.push(new gutil.File({
+			this.push(new Vinyl({
 				cwd: firstFile.cwd,
 				base: firstFile.cwd,
 				path: path.join(firstFile.cwd, origin),
 				contents: new Buffer(JSON.stringify(directoryStructure))
 			}));
 
-			gutil.log("Generated", gutil.colors.blue(config.filename));
+			log("Generated", colors.blue(config.filename));
 			return cb();
 		});
 };
